@@ -1,6 +1,5 @@
 from functools import wraps
 import json
-from pprint import pprint
 
 
 def http_response(func):
@@ -29,12 +28,3 @@ def headers(origin='', cert_valid_for=31536000):
         'X-Content-Type-Options': 'nosniff',
         'X-Frame-Options': 'DENY',
         'X-XSS-Protection': '1; mode=block'}
-
-
-@http_response
-def get_stock():
-    return {'apples': 3, 'pears': 4}
-
-
-if __name__ == '__main__':
-    pprint(get_stock())
